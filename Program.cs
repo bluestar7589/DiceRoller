@@ -1,4 +1,4 @@
-﻿namespace DiceRoller
+﻿namespace DieRoller
 {
     internal class Program
     {
