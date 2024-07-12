@@ -27,18 +27,22 @@
 
         /// <summary>
         /// Roll the die and set the value for the <see cref="FaceValue">
-        /// Return new face value
+        /// if the die is not currently held
+        /// Return the <see cref="FaceValue">
         /// </summary>
         /// <return>Return new random number</return>
         public byte Roll() {
-            // Generate random number from 1 -> 6
-            Random random = new Random();
+            if (!IsHeld) { 
+                // Generate random number from 1 -> 6
+                Random random = new Random();
 
-            byte newValue = (byte)random.Next(1, 7);
-            // set the face value
+                byte newValue = (byte)random.Next(1, 7);
+                // set the face value
 
-            FaceValue = newValue;
-            // return new number
+                FaceValue = newValue;
+                // return new number
+                return FaceValue;
+            }
             return FaceValue;
         }
     }
