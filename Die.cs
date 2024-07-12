@@ -5,6 +5,7 @@
     /// </summary>
     public class Die
     {
+        private static Random _random;
         /// <summary>
         /// The face value of the die (1 -> 6)
         /// </summary>
@@ -26,6 +27,13 @@
         }
 
         /// <summary>
+        /// This constructor is used to initialize any static data once when program start
+        /// </summary>
+        static Die() {
+            _random = new Random();
+        }
+
+        /// <summary>
         /// Roll the die and set the value for the <see cref="FaceValue">
         /// if the die is not currently held
         /// Return the <see cref="FaceValue">
@@ -34,9 +42,8 @@
         public byte Roll() {
             if (!IsHeld) { 
                 // Generate random number from 1 -> 6
-                Random random = new Random();
 
-                byte newValue = (byte)random.Next(1, 7);
+                byte newValue = (byte)_random.Next(1, 7);
                 // set the face value
 
                 FaceValue = newValue;
