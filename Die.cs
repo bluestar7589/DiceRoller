@@ -5,6 +5,9 @@
     /// </summary>
     public class Die
     {
+        /// <summary>
+        /// To generate the random number
+        /// </summary>
         private static Random _random;
         /// <summary>
         /// The face value of the die (1 -> 6)
@@ -42,7 +45,6 @@
         public byte Roll() {
             if (!IsHeld) { 
                 // Generate random number from 1 -> 6
-
                 byte newValue = (byte)_random.Next(1, 7);
                 // set the face value
 
