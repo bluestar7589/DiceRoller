@@ -8,7 +8,7 @@
         /// <summary>
         /// The face value of the die (1 -> 6)
         /// </summary>
-        public byte FaceValue { get; set; }
+        public byte FaceValue { get; private set; }
 
         /// <summary>
         /// To determine to hold the die or not
@@ -16,7 +16,14 @@
         /// </summary>
         public bool IsHeld { get; set; }
 
-        // Roll the die (set a new random face up value)
+
+        /// <summary>
+        /// Create the constructor, roll the die to get random number
+        /// </summary>
+        public Die()
+        {
+            Roll();
+        }
 
         /// <summary>
         /// Roll the die and set the value for the <see cref="FaceValue">
@@ -25,11 +32,14 @@
         /// <return>Return new random number</return>
         public byte Roll() {
             // Generate random number from 1 -> 6
+            Random random = new Random();
 
+            byte newValue = (byte)random.Next(1, 7);
             // set the face value
 
+            FaceValue = newValue;
             // return new number
-            throw new System.NotImplementedException();
+            return FaceValue;
         }
     }
 }
